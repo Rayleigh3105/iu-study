@@ -1,9 +1,11 @@
 package main.model;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 /**
  * Aufgabe:
  * Erstelle eine Klasse mit folgenden Instanzmethoden:
- *
+ * <p>
  * - toString()
  * - equals()
  * - hashCode()
@@ -24,6 +26,7 @@ public class Kunde implements Comparable<Kunde>, Cloneable {
 
     public Kunde(String vorname) {
         this.vorname = vorname;
+        this.kundenNummer = ThreadLocalRandom.current().nextInt(1, 1000 + 1);
     }
 
     /////////////////////////////////////
@@ -35,7 +38,7 @@ public class Kunde implements Comparable<Kunde>, Cloneable {
         buffer.append("Kunden Objekt ");
         buffer.append(" id: " + id);
         buffer.append(",");
-        buffer.append(" kundenNummer: "+ kundenNummer);
+        buffer.append(" kundenNummer: " + kundenNummer);
         buffer.append(",");
         buffer.append(" vorname: " + vorname);
         return buffer.toString();
@@ -43,7 +46,9 @@ public class Kunde implements Comparable<Kunde>, Cloneable {
 
     public boolean equals(Object obj) {
 
-        if (this == obj) { return true;}
+        if (this == obj) {
+            return true;
+        }
 
         if (obj instanceof Kunde) {
             Kunde k = (Kunde) obj;
