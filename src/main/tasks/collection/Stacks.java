@@ -1,7 +1,5 @@
 package main.tasks.collection;
 
-import main.model.Kunde;
-
 import java.util.ArrayDeque;
 import java.util.Deque;
 
